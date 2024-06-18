@@ -56,11 +56,36 @@ public class RadioTest {
 
     @Test
 
+    public void shouldSetStationInNextOverLimit() {
+        radio.setCurrentStation(10);
+        radio.nextStation();
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected,actual);
+
+    }
+
+    @Test
+
     public void shouldSetStationInPrev() {
         radio.setCurrentStation(0);
         radio.prevStation();
 
         int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+
+    public void shouldSetStationInPrevOverLimit() {
+        radio.setCurrentStation(1);
+        radio.prevStation();
+
+        int expected = 0;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected,actual);
@@ -154,6 +179,16 @@ public class RadioTest {
         Assertions.assertEquals(expected,actual );
     }
 
+   @Test
+
+    public void shouldSetRandomStation() {
+        radio.setRandomStation(3);
+
+        int expected = 3;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected,actual);
+   }
 
 
 }
