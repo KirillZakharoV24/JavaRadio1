@@ -7,6 +7,19 @@ public class RadioTest {
 
     @Test
 
+    public void shouldGetWithoutAmountStation() {
+        Radio radio = new Radio();
+        radio.getCurrentStation();
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+
     public void shouldGetAmountStation() {
         radio.getAmountStation();
 
